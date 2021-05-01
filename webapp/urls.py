@@ -6,5 +6,5 @@ app_name = 'webapp'
 
 urlpatterns = [
     path(r'',views.index,name='index'),
-    path(r'update',views.update,name='update'),
+    path(r'register/',views.register,name='register'),
 ]
