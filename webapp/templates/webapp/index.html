@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<a href=#>Add New User</a>
     <br>
-    <br>   
+    <br>
+    
     <table border=2>
         <thead>
           <tr>
@@ -10,7 +13,6 @@
             <th>Blog</th>
             <th>Publish Date</th>
             <th>Author</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +22,6 @@
             <td>{{blog.Description}}</td>
             <td>{{blog.Pub_date}}</td>
             <td>{{blog.Author}}</td>
-            <td><a href="{% url 'blog_update' blog_id %}">Update</a></td>
             
           </tr>
           {% endfor %} 

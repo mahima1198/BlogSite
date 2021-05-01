@@ -8,6 +8,5 @@ def index(request):
     print(blogdetails.values())
     return render(request,'index.html',{'blog':blogdetails})
 
-
-def update(request):
-    return render(request,'update.html')
+def register(request):
+    return render(request,'register.html')
