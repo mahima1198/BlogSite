@@ -3,29 +3,29 @@
 {% block content %}
 <div class="container" style="margin-top: 40px;">
  
-<form>
+<form action="{% url 'webapp:register' %}" method="POST">{% csrf_token %}
     <div class="mb-3">
         <label for="firstName" class="form-label" >First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="First name">
+        <input type="text" class="form-control" name="firstName" placeholder="First name" value="{{fname}}">
     </div>
 
     <div class="mb-3">
         <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="First name">
+        <input type="text" class="form-control" name="lastName" placeholder="First name" value= "{{lname}}">
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="{{email}}">
+      {% if error %}
+      <small id="emailHelp" class="form-text" style="color: red;">Email exists</small>
+      {% else %}
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      {% endif %}
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <input type="password" class="form-control" name="password" placeholder="Password">
     </div>
     <button type="Submit" class="btn btn-outline-success">Submit</button>
   </form>
