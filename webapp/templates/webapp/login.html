@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 40px;">
+ 
+<form action="{% url 'webapp:login' %}" method="POST">{% csrf_token %}
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    {% if error %}
+      <small id="emailHelp" class="form-text" style="color: red;">{{error}}</small>
+      <br><br>
+    {% endif %}
+    <button type="Submit" class="btn btn-outline-success">Login</button>
+  </form>
+</div> 
+{% endblock content %}
