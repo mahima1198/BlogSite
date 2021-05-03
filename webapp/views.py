@@ -71,7 +71,7 @@ def login(request):
                 return redirect(next)
             return redirect('webapp:index')
         else:
-            c={'error':'Invalid Email or Password. Please try again.'}
+            c={'error':'Invalid Email or Password. Please try again.', 'email':email, 'password':password}
     return render(request,'login.html',c)
 
 @login_required(login_url='/webapp/login/')

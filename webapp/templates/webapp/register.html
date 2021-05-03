@@ -1,36 +1,54 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'webapp/css/form.css' %}">
+{% endblock css %}
 
 {% block content %}
-<div class="container" style="margin-top: 40px;">
- 
-<form action="{% url 'webapp:register' %}" method="POST">{% csrf_token %}
-    <div class="mb-3">
-        <label for="firstName" class="form-label" >First Name</label>
-        <input type="text" class="form-control" name="firstName" placeholder="First name" value="{{fname}}">
+<div class="container login-container">
+  <div class="row">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-2 login-box">
+      <div class="col-lg-12 login-key">
+      </div>
+      <div class="col-lg-12 login-title">
+        REGISTER
+      </div>
+      <div class="col-lg-12 login-form">
+        <div class="col-lg-12 login-form">
+          <form action="{% url 'webapp:register' %}" method="POST">{% csrf_token %}
+            <div class="mb-3">
+              <label for="firstName" class="form-control-label">FIRST NAME</label>
+              <input type="text" class="form-control" name="firstName" value="{{fname}}" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-control-label">LAST NAME</label>
+              <input type="text" class="form-control" name="lastName" value="{{lname}}" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-control-label">EMAIL</label>
+              <input type="email" class="form-control" name="email" value="{{email}}" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-control-label">PASSWORD</label required>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="col-lg-12 loginbttm">
+              <div class="col-lg-12 login-btm login-text">
+                {% if error %}
+                Email exists
+                {% endif %}
+              </div>
+              <br><br>
+              <div class="login-button" style="text-align: center;">
+                <button type="submit" class="btn btn-outline-primary">REGISTER</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-
-    <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="lastName" placeholder="First name" value= "{{lname}}">
-    </div>
-
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="{{email}}">
-      {% if error %}
-      <small id="emailHelp" class="form-text" style="color: red;">Email exists</small>
-      {% else %}
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      {% endif %}
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
-    <div class="d-grid gap-2 col-2 mx-auto">
-      <button type="Submit" class="btn btn-outline-success">Register</button>
-    </div>
-  
-  </form>
-</div> 
+  </div>
+</div>
 {% endblock content %}
