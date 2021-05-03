@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{% url 'webapp:add_blog' %}" method="POST"> {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Add Title">
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" name="description" rows="5" placeholder="Add Description"></textarea>
+    </div>
+    <div class="d-grid gap-2 col-3 mx-auto">
+        <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+    
+  </form>
+
+{% endblock content %}

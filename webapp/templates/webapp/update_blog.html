@@ -2,19 +2,20 @@
 
 {% block content %}
 
-<form action="" method="POST">
+<form action="{% url 'webapp:update_blog' blog_id %}" method="POST"> {% csrf_token %}
     
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter Title">
+        <input type="text" class="form-control" name="title" value="{{Title}}">
     </div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" rows="5"></textarea>
+        <textarea class="form-control" name="description" rows="5">{{Description}}</textarea>
     </div>
-
-    <button type="submit" class="btn btn-primary">Update</button>
+    <div class="d-grid gap-2 col-3 mx-auto">
+    <button type="button" class="btn btn-outline-success">Update</button>
+    </div>
   </form>
 
 {% endblock content %}

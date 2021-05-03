@@ -16,7 +16,14 @@
       <small id="emailHelp" class="form-text" style="color: red;">{{error}}</small>
       <br><br>
     {% endif %}
-    <button type="Submit" class="btn btn-outline-success">Login</button>
+    <div class="d-grid gap-2 col-2 mx-auto">
+      <button type="Submit" class="btn btn-outline-success">Login</button>
+    </div>
+    {% if request.GET.next %}
+      <div class="mb-3">
+          <input id= "next" class="form-control" type="hidden" name="next" value="{{ request.GET.next }}">
+      </div>
+    {% endif %}
   </form>
 </div> 
 {% endblock content %}

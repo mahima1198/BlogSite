@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block content %} 
 
-<a href=#>Add New User</a>
-    <br>
-    <br>
-    
+    <div class="text-center">
+      <a href="{% url 'webapp:add_blog' %}"><button type="button" class="btn btn-outline-primary">Add New Blog</button></a>
+    </div>
+    <br><br>
+    {% if blog %}
     <table class="table table-dark table-striped">
         <thead>
           <tr>
@@ -30,5 +31,9 @@
           {% endfor %} 
         </tbody>
       </table>
+    {% else %}
+    <h1 style="text-align: center;"> No Blogs Written Yet! </h1>
+
+    {% endif %}
 
 {% endblock content %}
