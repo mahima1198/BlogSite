@@ -50,7 +50,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+SESSION_ENGINE='django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_AGE=1800
 ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
@@ -119,5 +120,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATICFILES_DIRS = [
+    BASE_DIR / "webapp/static",
+]
 
 STATIC_URL = '/static/'

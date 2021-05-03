@@ -1,11 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<a href=#>Add New User</a>
-    <br>
-    <br>
-    
+   <div class="container">
     <table class="table table-dark table-striped">
         <thead>
           <tr>
@@ -13,8 +9,6 @@
             <th>Blog</th>
             <th>Publish Date</th>
             <th>Author</th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -24,11 +18,9 @@
             <td>{{blog.Description}}</td>
             <td>{{blog.Pub_date}}</td>
             <td>{{blog.Author}}</td>
-            <td><a href="{% url 'webapp:update_blog' blog.id %}"><button type="button" class="btn btn-outline-warning">Update</button></a></td>
-            <td><a href="{% url 'webapp:delete_blog' blog.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a></td>
           </tr>
           {% endfor %} 
         </tbody>
       </table>
-
+    </div>
 {% endblock content %}
