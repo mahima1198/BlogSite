@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'webapp',
+    'health_check',                             # required
+    'health_check.db',
+    'health_check.contrib.psutil',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
