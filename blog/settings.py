@@ -21,18 +21,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l31o(vihv8z5r*rkgp(8v3&bkou%60t%#3f3($wm0_y@zuc9@$'
+SECRET_KEY = 'l31o(vihv8z5r*rkgp(8v3&bkou%60t4wd2a3f3($wm0_y@zuc9@$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'webapp',
+    'health_check',                             # required
+    'health_check.db',
+    'health_check.contrib.psutil',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
